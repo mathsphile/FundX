@@ -10,17 +10,17 @@ CrowdFundX is a production-ready, commercial-grade SaaS decentralized crowdfundi
 
 ## 📜 Soroban Smart Contract & Deployment Details (Stellar Testnet)
 
-| Parameter | Value / Address |
-| :--- | :--- |
-| **Network** | **Stellar Testnet** |
-| **Contract ID** | `CDEE2K7UAVF2V2K62P7D5XOTSIWKWBN2Z3I4FU3PBSXWGLMNIMMHB4NE` |
-| **Deployer Wallet ID** | `GAKAWNAR76U2MPDKUZXPYA6S6S4HOTVIXIRXIEKXJXVNA4XUIHGDSLYY` |
-| **Interaction Tx Hash** | `0c803a6af3cd09f3015c278dbf9b99b6278b47c870fc7eac1827ed4400f8d302` |
-| **WASM Hash** | `103e8cfc5bd3ccc21cdf40d1dddc5486041ba0b82b50d65a38f6dfaf26e2e98e` |
-| **Contract Explorer** | [View Contract on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CDEE2K7UAVF2V2K62P7D5XOTSIWKWBN2Z3I4FU3PBSXWGLMNIMMHB4NE) |
-| **Interaction Tx Explorer** | [View Tx Hash on Stellar Expert](https://stellar.expert/explorer/testnet/tx/0c803a6af3cd09f3015c278dbf9b99b6278b47c870fc7eac1827ed4400f8d302) |
-| **Deployer Explorer** | [View Deployer Account on Stellar Expert](https://stellar.expert/explorer/testnet/account/GAKAWNAR76U2MPDKUZXPYA6S6S4HOTVIXIRXIEKXJXVNA4XUIHGDSLYY) |
-| **Native XLM Contract** | `CDLZFC3SYJYDVR72C5SCNXLI32WVWRK2VXLZ45UKEBRC6EDT3GVSR2HN` |
+| Parameter | Value / Address | Status |
+| :--- | :--- | :-: |
+| **Network** | **Stellar Testnet** | 🟢 Live |
+| **Contract ID** | `CDEE2K7UAVF2V2K62P7D5XOTSIWKWBN2Z3I4FU3PBSXWGLMNIMMHB4NE` | 🟢 Verified |
+| **Deployer Wallet ID** | `GAKAWNAR76U2MPDKUZXPYA6S6S4HOTVIXIRXIEKXJXVNA4XUIHGDSLYY` | 🟢 Active |
+| **Interaction Tx Hash** | `0c803a6af3cd09f3015c278dbf9b99b6278b47c870fc7eac1827ed4400f8d302` | 🟢 Confirmed |
+| **WASM Hash** | `103e8cfc5bd3ccc21cdf40d1dddc5486041ba0b82b50d65a38f6dfaf26e2e98e` | 🟢 Validated |
+| **Contract Explorer** | [View Contract on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CDEE2K7UAVF2V2K62P7D5XOTSIWKWBN2Z3I4FU3PBSXWGLMNIMMHB4NE) | 🔗 Explorer |
+| **Interaction Tx Explorer** | [View Tx Hash on Stellar Expert](https://stellar.expert/explorer/testnet/tx/0c803a6af3cd09f3015c278dbf9b99b6278b47c870fc7eac1827ed4400f8d302) | 🔗 Explorer |
+| **Deployer Explorer** | [View Deployer Account on Stellar Expert](https://stellar.expert/explorer/testnet/account/GAKAWNAR76U2MPDKUZXPYA6S6S4HOTVIXIRXIEKXJXVNA4XUIHGDSLYY) | 🔗 Explorer |
+| **Native XLM Contract** | `CDLZFC3SYJYDVR72C5SCNXLI32WVWRK2VXLZ45UKEBRC6EDT3GVSR2HN` | 🟢 Active |
 
 ---
 
