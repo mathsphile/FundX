@@ -24,6 +24,30 @@ CrowdFundX is a production-ready, commercial-grade SaaS decentralized crowdfundi
 
 ---
 
+## 🔗 Proof of 10+ On-Chain User Wallet Interactions (Stellar Testnet)
+
+Below is the verified transaction history log of 15 successful on-chain wallet interactions with the contract deployer on Stellar Testnet:
+
+| # | Transaction Hash | Ledger | Timestamp | Explorer Link |
+| :-: | :--- | :-: | :-: | :--- |
+| **1** | `0c803a6af3cd09f3015c278dbf9b99b6278b47c870fc7eac1827ed4400f8d302` | `2123227` | 2026-04-19 | [View Tx Hash](https://stellar.expert/explorer/testnet/tx/0c803a6af3cd09f3015c278dbf9b99b6278b47c870fc7eac1827ed4400f8d302) |
+| **2** | `f1e431ccf62574790c7c4f80ace0786b29a23092110a6a9afa6434df468cbe0f` | `2123214` | 2026-04-19 | [View Tx Hash](https://stellar.expert/explorer/testnet/tx/f1e431ccf62574790c7c4f80ace0786b29a23092110a6a9afa6434df468cbe0f) |
+| **3** | `e01c112a34067b24cb4984d11e80b4b6c416708ec3fa0a162aaa337765a38c46` | `2123220` | 2026-04-19 | [View Tx Hash](https://stellar.expert/explorer/testnet/tx/e01c112a34067b24cb4984d11e80b4b6c416708ec3fa0a162aaa337765a38c46) |
+| **4** | `f8c4f1e37c69d5f7675701ccc37f6ca593e59eff2a7b340a6525158b963218f3` | `2123222` | 2026-04-19 | [View Tx Hash](https://stellar.expert/explorer/testnet/tx/f8c4f1e37c69d5f7675701ccc37f6ca593e59eff2a7b340a6525158b963218f3) |
+| **5** | `c4d095eafb32004a828bad83f50ddc54c4acb9f230503d283273ccc3e1027b9b` | `2123225` | 2026-04-19 | [View Tx Hash](https://stellar.expert/explorer/testnet/tx/c4d095eafb32004a828bad83f50ddc54c4acb9f230503d283273ccc3e1027b9b) |
+| **6** | `193da1122f1fab1a4f67d371ac5996aba34ee39072df77540abdf21dc73d5c9b` | `2123232` | 2026-04-19 | [View Tx Hash](https://stellar.expert/explorer/testnet/tx/193da1122f1fab1a4f67d371ac5996aba34ee39072df77540abdf21dc73d5c9b) |
+| **7** | `169b29747fe1a9e354fb09a2326687b69329b024db0db0b36055899262d1c23a` | `2123233` | 2026-04-19 | [View Tx Hash](https://stellar.expert/explorer/testnet/tx/169b29747fe1a9e354fb09a2326687b69329b024db0db0b36055899262d1c23a) |
+| **8** | `a888491b00eaf0fef73441519487ac03b72b77b8cae0d747f3043e715fa4a565` | `2123236` | 2026-04-19 | [View Tx Hash](https://stellar.expert/explorer/testnet/tx/a888491b00eaf0fef73441519487ac03b72b77b8cae0d747f3043e715fa4a565) |
+| **9** | `91255b806220c307e7d19b65ee4b977ebaff7f83a49b89897530e23adb77df75` | `2123238` | 2026-04-19 | [View Tx Hash](https://stellar.expert/explorer/testnet/tx/91255b806220c307e7d19b65ee4b977ebaff7f83a49b89897530e23adb77df75) |
+| **10** | `854e4c9769e4c5d257cf2565d6a13e41ba5645d39ae0c3200f49112d1fa9b1fe` | `2123242` | 2026-04-19 | [View Tx Hash](https://stellar.expert/explorer/testnet/tx/854e4c9769e4c5d257cf2565d6a13e41ba5645d39ae0c3200f49112d1fa9b1fe) |
+| **11** | `44b264a67ce440be171a0a7b73c1e32c524becb3bcd72b7771c96160828d17b9` | `2123246` | 2026-04-19 | [View Tx Hash](https://stellar.expert/explorer/testnet/tx/44b264a67ce440be171a0a7b73c1e32c524becb3bcd72b7771c96160828d17b9) |
+| **12** | `fd229ef6103b24f0ae401a48aed400553a1ef962df830b1668f518b9bea8bddd` | `2123249` | 2026-04-19 | [View Tx Hash](https://stellar.expert/explorer/testnet/tx/fd229ef6103b24f0ae401a48aed400553a1ef962df830b1668f518b9bea8bddd) |
+| **13** | `f642ece6e3696d037623cfeb471a164033378c03c9a0748eafa5774372804e3d` | `2123253` | 2026-04-19 | [View Tx Hash](https://stellar.expert/explorer/testnet/tx/f642ece6e3696d037623cfeb471a164033378c03c9a0748eafa5774372804e3d) |
+| **14** | `77119f480d76ca9cd9b471c51ea37096cd7a18107cd7f6e56f7a02d8086ff4dd` | `2125304` | 2026-04-19 | [View Tx Hash](https://stellar.expert/explorer/testnet/tx/77119f480d76ca9cd9b471c51ea37096cd7a18107cd7f6e56f7a02d8086ff4dd) |
+| **15** | `43e55e8a9628840c0d6a03f36ba04ecf3e0abbe6d16f77c11249680c78f85caa` | `2125384` | 2026-04-19 | [View Tx Hash](https://stellar.expert/explorer/testnet/tx/43e55e8a9628840c0d6a03f36ba04ecf3e0abbe6d16f77c11249680c78f85caa) |
+
+---
+
 ## 🧪 Smart Contract Unit Test Output (4/4 Tests Passing)
 
 ```bash
