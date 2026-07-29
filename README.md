@@ -6,6 +6,34 @@ CrowdFundX is a production-ready, commercial-grade SaaS decentralized crowdfundi
 
 ---
 
+## 📸 Platform UI Showcase
+
+### 💻 Desktop Experience
+
+#### 1. Explore Campaigns & Discovery Hub
+![Explore Campaigns](image.png)
+
+#### 2. Creator Studio — Campaign Launch Flow
+![Create Campaign Studio](image-1.png)
+
+#### 3. Creator Dashboard & Escrow Analytics
+![Creator Dashboard](image-2.png)
+
+---
+
+### 📱 Mobile Responsive Experience
+
+#### 1. Mobile Homepage & Navigation
+![Mobile Homepage](image-3.png)
+
+#### 2. Mobile Wallet Connection & Soroban Escrow
+![Mobile Wallet Connection](image-4.png)
+
+#### 3. Mobile Supporter Portal & Refund Claims
+![Mobile Supporter Portal](image-5.png)
+
+---
+
 ## 🎥 Demo Video
 
 [![CrowdFundX Demo Video](https://img.youtube.com/vi/X9E2upV4nJw/maxresdefault.jpg)](https://youtu.be/X9E2upV4nJw)
