@@ -4,6 +4,62 @@
 
 CrowdFundX is a production-ready, commercial-grade SaaS decentralized crowdfunding platform where creators can raise funds using XLM. Every campaign is backed by an audited **Soroban smart contract escrow** on the Stellar network.
 
+🌐 **Live Production Demo**: [https://fund-x-green.vercel.app](https://fund-x-green.vercel.app)
+
+---
+
+## 📜 Soroban Smart Contract & Deployment Details (Stellar Testnet)
+
+| Parameter | Value / Address |
+| :--- | :--- |
+| **Network** | **Stellar Testnet** |
+| **Contract ID** | `CDEE2K7UAVF2V2K62P7D5XOTSIWKWBN2Z3I4FU3PBSXWGLMNIMMHB4NE` |
+| **Deployer Wallet ID** | `GAKAWNAR76U2MPDKUZXPYA6S6S4HOTVIXIRXIEKXJXVNA4XUIHGDSLYY` |
+| **Interaction Tx Hash** | `0c803a6af3cd09f3015c278dbf9b99b6278b47c870fc7eac1827ed4400f8d302` |
+| **WASM Hash** | `103e8cfc5bd3ccc21cdf40d1dddc5486041ba0b82b50d65a38f6dfaf26e2e98e` |
+| **Contract Explorer** | [View Contract on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CDEE2K7UAVF2V2K62P7D5XOTSIWKWBN2Z3I4FU3PBSXWGLMNIMMHB4NE) |
+| **Interaction Tx Explorer** | [View Tx Hash on Stellar Expert](https://stellar.expert/explorer/testnet/tx/0c803a6af3cd09f3015c278dbf9b99b6278b47c870fc7eac1827ed4400f8d302) |
+| **Deployer Explorer** | [View Deployer Account on Stellar Expert](https://stellar.expert/explorer/testnet/account/GAKAWNAR76U2MPDKUZXPYA6S6S4HOTVIXIRXIEKXJXVNA4XUIHGDSLYY) |
+| **Native XLM Contract** | `CDLZFC3SYJYDVR72C5SCNXLI32WVWRK2VXLZ45UKEBRC6EDT3GVSR2HN` |
+
+---
+
+## 🧪 Smart Contract Unit Test Output (4/4 Tests Passing)
+
+```bash
+cd contracts/crowdfund && cargo test
+```
+
+```text
+running 4 tests
+test test::test_zero_donation_panics - should panic ... ok
+test test::test_refund_flow ... ok
+test test::test_create_donate_withdraw_flow ... ok
+test test::test_multiple_contributors_flow ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+```
+
+---
+
+## ⚙️ CI/CD Pipeline & GitHub Actions Setup
+
+Automated continuous integration is configured in [`.github/workflows/ci.yml`](.github/workflows/ci.yml):
+- 🦀 **Smart Contract Job**: Compiles WASM and runs `cargo test` across all unit tests.
+- ⚡ **Frontend Job**: Runs Next.js 15 type checking, Prisma client generation, and `npm run build`.
+
+---
+
+## 🏆 Rise In Stellar Orange Belt (Level 3) Compliance Checklist
+
+- [x] **Soroban Smart Contract Implementation**: Custom Rust Soroban contract (`contracts/crowdfund/src/lib.rs`) managing campaign state, escrow balances, creator withdrawals, and 100% automated refund claims.
+- [x] **Stellar Testnet Deployment**: Deployed contract `CDEE2K7UAVF2V2K62P7D5XOTSIWKWBN2Z3I4FU3PBSXWGLMNIMMHB4NE` under deployer wallet `GAKAWNAR76U2MPDKUZXPYA6S6S4HOTVIXIRXIEKXJXVNA4XUIHGDSLYY`.
+- [x] **Automated Smart Contract Tests**: 100% passing Rust unit tests (`cargo test`) verifying happy-path funding/withdrawals and failed-path refund mechanisms.
+- [x] **Full-Stack SaaS Web App**: Production Next.js 15 application with exploration, campaign creator studio, creator dashboard, and supporter portal.
+- [x] **Stellar Wallet & Freighter Integration**: ED25519 challenge-response login, transaction XDR signing, and real-time Horizon testnet balance queries.
+- [x] **Video Demonstration**: Recorded platform walkthrough on YouTube ([Watch Demo Video](https://youtu.be/X9E2upV4nJw)).
+- [x] **Visual UI Showcase**: Documented high-resolution desktop and mobile responsive interface screenshots in `README.md`.
+
 ---
 
 ## 📸 Platform UI Showcase
@@ -39,32 +95,6 @@ CrowdFundX is a production-ready, commercial-grade SaaS decentralized crowdfundi
 [![CrowdFundX Demo Video](https://img.youtube.com/vi/X9E2upV4nJw/maxresdefault.jpg)](https://youtu.be/X9E2upV4nJw)
 
 ▶️ **Watch the Platform & Soroban Escrow Demo Video on YouTube**: [https://youtu.be/X9E2upV4nJw](https://youtu.be/X9E2upV4nJw)
-
----
-
-## 📜 Soroban Smart Contract Details (Stellar Testnet)
-
-| Parameter | Value / Address |
-| :--- | :--- |
-| **Network** | **Stellar Testnet** |
-| **Contract ID** | `CDEE2K7UAVF2V2K62P7D5XOTSIWKWBN2Z3I4FU3PBSXWGLMNIMMHB4NE` |
-| **WASM Hash** | `103e8cfc5bd3ccc21cdf40d1dddc5486041ba0b82b50d65a38f6dfaf26e2e98e` |
-| **Deployer Wallet ID** | `GAKAWNAR76U2MPDKUZXPYA6S6S4HOTVIXIRXIEKXJXVNA4XUIHGDSLYY` |
-| **Contract Explorer** | [View Contract on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CDEE2K7UAVF2V2K62P7D5XOTSIWKWBN2Z3I4FU3PBSXWGLMNIMMHB4NE) |
-| **Deployer Explorer** | [View Deployer Account on Stellar Expert](https://stellar.expert/explorer/testnet/account/GAKAWNAR76U2MPDKUZXPYA6S6S4HOTVIXIRXIEKXJXVNA4XUIHGDSLYY) |
-| **Native XLM Contract** | `CDLZFC3SYJYDVR72C5SCNXLI32WVWRK2VXLZ45UKEBRC6EDT3GVSR2HN` |
-
----
-
-## 🏆 Rise In Stellar Orange Belt (Level 3) Compliance Checklist
-
-- [x] **Soroban Smart Contract Implementation**: Custom Rust Soroban contract (`contracts/crowdfund/src/lib.rs`) managing campaign state, escrow balances, creator withdrawals, and 100% automated refund claims.
-- [x] **Stellar Testnet Deployment**: Deployed contract `CDEE2K7UAVF2V2K62P7D5XOTSIWKWBN2Z3I4FU3PBSXWGLMNIMMHB4NE` under deployer wallet `GAKAWNAR76U2MPDKUZXPYA6S6S4HOTVIXIRXIEKXJXVNA4XUIHGDSLYY`.
-- [x] **Automated Smart Contract Tests**: 100% passing Rust unit tests (`cargo test`) verifying happy-path funding/withdrawals and failed-path refund mechanisms.
-- [x] **Full-Stack SaaS Web App**: Production Next.js 15 application with exploration, campaign creator studio, creator dashboard, and supporter portal.
-- [x] **Stellar Wallet & Freighter Integration**: ED25519 challenge-response login, transaction XDR signing, and real-time Horizon testnet balance queries.
-- [x] **Video Demonstration**: Recorded platform walkthrough on YouTube ([Watch Demo Video](https://youtu.be/X9E2upV4nJw)).
-- [x] **Visual UI Showcase**: Documented high-resolution desktop and mobile responsive interface screenshots in `README.md`.
 
 ---
 
