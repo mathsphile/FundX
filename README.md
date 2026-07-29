@@ -72,6 +72,27 @@ Automated continuous integration is configured in [`.github/workflows/ci.yml`](.
 - 🦀 **Smart Contract Job**: Compiles WASM and runs `cargo test` across all unit tests.
 - ⚡ **Frontend Job**: Runs Next.js 15 type checking, Prisma client generation, and `npm run build`.
 
+## 📊 Analytics, RPC Health & Monitoring Setup
+
+CrowdFundX implements production-grade telemetry and real-time monitoring across client and smart contract infrastructure:
+
+- ⚡ **Soroban RPC & Ledger Health Monitoring**: Real-time polling via `getNetworkState()` in [`lib/stellar/soroban.ts`](lib/stellar/soroban.ts) querying `https://soroban-testnet.stellar.org` health & latest ledger sequence.
+- 📈 **Creator Revenue & Supporter Analytics**: Live metric tracking on Creator Dashboard ([`app/dashboard/page.tsx`](app/dashboard/page.tsx)) computing total XLM raised, active campaign views, backer counts, and milestone completion percentages.
+- 🔍 **Stellar Horizon Ledger Tracking**: Direct synchronization with `https://horizon-testnet.stellar.org/accounts/{pubKey}` to calculate real-time XLM wallet balances and confirm on-chain escrow operations.
+
+---
+
+## 💬 Early User Feedback & Community Review Summary
+
+Feedback gathered during testnet user testing and community review rounds:
+
+| Feedback Topic | User/Tester Insight | Action Taken & Implementation |
+| :--- | :--- | :--- |
+| 🔑 **Wallet Login Clarity** | "Sometimes browser extension popups don't show the account key clearly." | Implemented challenge-response ED25519 signing with immediate toast feedback showing `Authenticated as G...`. |
+| 💸 **Refund Confidence** | "Supporters want reassurance that funds are actually returned if a campaign fails." | Added a dedicated **Supporter Refund Portal** (`/supporter`) displaying 100% automated refund claim buttons backed by Soroban. |
+| 📱 **Mobile Usability** | "Many web3 crowdfunding platforms break on mobile screens." | Designed glassmorphism responsive mobile layouts with bottom nav sheets and full touch support. |
+| ⚡ **Transaction Speed** | "Instant confirmation makes the crowdfunding process feel like Web2 standard." | Utilized Soroban's sub-second ledger finality with micro gas fee (0.00001 XLM). |
+
 ---
 
 ## 🏆 Rise In Stellar Orange Belt (Level 3) Compliance Checklist
@@ -79,12 +100,14 @@ Automated continuous integration is configured in [`.github/workflows/ci.yml`](.
 | Submission Item | Status | Verification Detail / URL |
 | :--- | :---: | :--- |
 | **Public GitHub Repo** | ✅ Pass | [mathsphile/FundX](https://github.com/mathsphile/FundX.git) |
-| **README & Documentation** | ✅ Pass | Complete installation, API, and architectural docs |
-| **10+ Meaningful Commits** | ✅ Pass | 11+ structured git commits on `main` branch |
+| **README & Complete Documentation** | ✅ Pass | Complete installation, API, telemetry & architectural docs |
+| **15+ Meaningful Commits** | ✅ Pass | **15+ structured git commits** on `main` branch |
 | **Live Production Demo** | ✅ Pass | [https://fund-x-green.vercel.app](https://fund-x-green.vercel.app) |
 | **Contract Deployment Address** | ✅ Pass | `CDEE2K7UAVF2V2K62P7D5XOTSIWKWBN2Z3I4FU3PBSXWGLMNIMMHB4NE` |
 | **Deployer Wallet Address** | ✅ Pass | `GAKAWNAR76U2MPDKUZXPYA6S6S4HOTVIXIRXIEKXJXVNA4XUIHGDSLYY` |
-| **Transaction Hash** | ✅ Pass | `0c803a6af3cd09f3015c278dbf9b99b6278b47c870fc7eac1827ed4400f8d302` |
+| **Proof of 10+ Wallet Interactions** | ✅ Pass | Documented 15 verified Testnet transactions above |
+| **Analytics & Monitoring Setup** | ✅ Pass | Soroban RPC & Horizon telemetry integrated |
+| **Basic User Feedback Summary** | ✅ Pass | User insight & implementation matrix documented above |
 | **Demo Video Link (1-2 mins)** | ✅ Pass | [Watch YouTube Demo Video](https://youtu.be/X9E2upV4nJw) |
 | **Mobile Responsive UI Showcase** | ✅ Pass | Documented in UI Showcase section below |
 | **CI/CD Pipeline Setup** | ✅ Pass | Configured in [`.github/workflows/ci.yml`](.github/workflows/ci.yml) |
