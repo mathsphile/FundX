@@ -49,8 +49,22 @@ CrowdFundX is a production-ready, commercial-grade SaaS decentralized crowdfundi
 | **Network** | **Stellar Testnet** |
 | **Contract ID** | `CDEE2K7UAVF2V2K62P7D5XOTSIWKWBN2Z3I4FU3PBSXWGLMNIMMHB4NE` |
 | **WASM Hash** | `103e8cfc5bd3ccc21cdf40d1dddc5486041ba0b82b50d65a38f6dfaf26e2e98e` |
-| **Stellar Explorer** | [View Contract on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CDEE2K7UAVF2V2K62P7D5XOTSIWKWBN2Z3I4FU3PBSXWGLMNIMMHB4NE) |
+| **Deployer Wallet ID** | `GAKAWNAR76U2MPDKUZXPYA6S6S4HOTVIXIRXIEKXJXVNA4XUIHGDSLYY` |
+| **Contract Explorer** | [View Contract on Stellar Expert](https://stellar.expert/explorer/testnet/contract/CDEE2K7UAVF2V2K62P7D5XOTSIWKWBN2Z3I4FU3PBSXWGLMNIMMHB4NE) |
+| **Deployer Explorer** | [View Deployer Account on Stellar Expert](https://stellar.expert/explorer/testnet/account/GAKAWNAR76U2MPDKUZXPYA6S6S4HOTVIXIRXIEKXJXVNA4XUIHGDSLYY) |
 | **Native XLM Contract** | `CDLZFC3SYJYDVR72C5SCNXLI32WVWRK2VXLZ45UKEBRC6EDT3GVSR2HN` |
+
+---
+
+## 🏆 Rise In Stellar Orange Belt (Level 3) Compliance Checklist
+
+- [x] **Soroban Smart Contract Implementation**: Custom Rust Soroban contract (`contracts/crowdfund/src/lib.rs`) managing campaign state, escrow balances, creator withdrawals, and 100% automated refund claims.
+- [x] **Stellar Testnet Deployment**: Deployed contract `CDEE2K7UAVF2V2K62P7D5XOTSIWKWBN2Z3I4FU3PBSXWGLMNIMMHB4NE` under deployer wallet `GAKAWNAR76U2MPDKUZXPYA6S6S4HOTVIXIRXIEKXJXVNA4XUIHGDSLYY`.
+- [x] **Automated Smart Contract Tests**: 100% passing Rust unit tests (`cargo test`) verifying happy-path funding/withdrawals and failed-path refund mechanisms.
+- [x] **Full-Stack SaaS Web App**: Production Next.js 15 application with exploration, campaign creator studio, creator dashboard, and supporter portal.
+- [x] **Stellar Wallet & Freighter Integration**: ED25519 challenge-response login, transaction XDR signing, and real-time Horizon testnet balance queries.
+- [x] **Video Demonstration**: Recorded platform walkthrough on YouTube ([Watch Demo Video](https://youtu.be/X9E2upV4nJw)).
+- [x] **Visual UI Showcase**: Documented high-resolution desktop and mobile responsive interface screenshots in `README.md`.
 
 ---
 
