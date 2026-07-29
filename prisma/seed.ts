@@ -91,6 +91,7 @@ Existing blockchain payment gateways suffer from high latency and variable gas f
       raisedAmount: 18450,
       deadline: in30Days,
       coverImage: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=1200&auto=format&fit=crop&q=80",
+      videoUrl: "https://youtu.be/X9E2upV4nJw",
       gallery: JSON.stringify([
         "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
         "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&auto=format&fit=crop&q=80"

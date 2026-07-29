@@ -118,11 +118,30 @@ export default function CampaignDetailPage({
 
       {/* Hero Media + Funding Panel */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-        {/* Left Image Media */}
+        {/* Left Image & Video Media */}
         <div className="lg:col-span-7 space-y-4">
-          <div className="relative w-full h-[400px] rounded-3xl overflow-hidden glass-panel border border-slate-200/80 bg-white shadow-md">
+          <div className="relative w-full h-[380px] rounded-3xl overflow-hidden glass-panel border border-slate-200/80 bg-white shadow-md">
             <Image src={campaign.coverImage} alt={campaign.title} fill className="object-cover" priority />
           </div>
+
+          {/* Embedded YouTube Demo Video */}
+          {campaign.videoUrl && (
+            <div className="relative w-full aspect-video rounded-3xl overflow-hidden glass-panel border border-slate-200/80 bg-black shadow-lg">
+              <iframe
+                src={
+                  campaign.videoUrl.includes("youtu.be")
+                    ? `https://www.youtube-nocookie.com/embed/${campaign.videoUrl.split("youtu.be/")[1]?.split("?")[0]}`
+                    : campaign.videoUrl.includes("v=")
+                    ? `https://www.youtube-nocookie.com/embed/${campaign.videoUrl.split("v=")[1]?.split("&")[0]}`
+                    : campaign.videoUrl
+                }
+                title="Campaign Demo Video"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full border-0"
+              />
+            </div>
+          )}
 
           {/* Gallery Thumbnails */}
           {galleryImages.length > 0 && (

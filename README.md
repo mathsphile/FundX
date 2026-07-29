@@ -6,6 +6,14 @@ CrowdFundX is a production-ready, commercial-grade SaaS decentralized crowdfundi
 
 ---
 
+## 🎥 Demo Video
+
+[![CrowdFundX Demo Video](https://img.youtube.com/vi/X9E2upV4nJw/maxresdefault.jpg)](https://youtu.be/X9E2upV4nJw)
+
+▶️ **Watch the Platform & Soroban Escrow Demo Video on YouTube**: [https://youtu.be/X9E2upV4nJw](https://youtu.be/X9E2upV4nJw)
+
+---
+
 ## 📜 Soroban Smart Contract Details (Stellar Testnet)
 
 | Parameter | Value / Address |
