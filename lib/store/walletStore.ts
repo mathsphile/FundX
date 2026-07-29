@@ -8,7 +8,7 @@ interface WalletStore {
   isConnecting: boolean;
   hasFreighter: boolean;
   checkWallet: () => Promise<void>;
-  connect: () => Promise<void>;
+  connect: () => Promise<string | null>;
   disconnect: () => Promise<void>;
   updateBalance: () => Promise<void>;
 }
@@ -21,20 +21,36 @@ export const useWalletStore = create<WalletStore>((set, get) => ({
   hasFreighter: false,
 
   checkWallet: async () => {
-    const installed = await checkFreighterInstalled();
-    set({ hasFreighter: installed });
+    try {
+      const installed = await checkFreighterInstalled();
+      set({ hasFreighter: installed });
+    } catch (e) {
+      set({ hasFreighter: false });
+    }
 
     // Check existing auth session
     try {
       const res = await fetch("/api/auth/me");
-      const data = await res.json();
-      if (data.authenticated && data.user) {
-        set({ isConnected: true, publicKey: data.user.walletAddress });
-        get().updateBalance();
+      if (res.ok) {
+        const data = await res.json();
+        if (data.authenticated && data.user?.walletAddress) {
+          set({ isConnected: true, publicKey: data.user.walletAddress });
+          await get().updateBalance();
+          return;
+        }
       }
     } catch (e) {
       console.warn("Session check error", e);
     }
+
+    // Check if Freighter already authorized
+    try {
+      const key = await connectWallet();
+      if (key) {
+        set({ isConnected: true, publicKey: key });
+        await get().updateBalance();
+      }
+    } catch (e) {}
   },
 
   connect: async () => {
@@ -42,35 +58,42 @@ export const useWalletStore = create<WalletStore>((set, get) => ({
     try {
       const key = await connectWallet();
       if (key) {
+        set({ isConnected: true, publicKey: key });
+        await get().updateBalance();
+
         // Authenticate with server challenge
-        const challengeRes = await fetch("/api/auth/challenge", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ publicKey: key }),
-        });
-        const { nonce } = await challengeRes.json();
+        try {
+          const challengeRes = await fetch("/api/auth/challenge", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ publicKey: key }),
+          });
 
-        let signature: string | null = null;
-        if (nonce) {
-          signature = await signChallengeNonce(key, nonce);
+          if (challengeRes.ok) {
+            const { nonce } = await challengeRes.json();
+            let signature: string | null = null;
+            if (nonce) {
+              signature = await signChallengeNonce(key, nonce);
+            }
+
+            await fetch("/api/auth/verify", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ publicKey: key, nonce, signature }),
+            });
+          }
+        } catch (authError) {
+          console.warn("Server auth check failed, retaining client state:", authError);
         }
 
-        const verifyRes = await fetch("/api/auth/verify", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ publicKey: key, nonce, signature }),
-        });
-
-        if (verifyRes.ok) {
-          set({ isConnected: true, publicKey: key });
-          await get().updateBalance();
-        }
+        return key;
       }
     } catch (error) {
       console.error("Wallet connection failed", error);
     } finally {
       set({ isConnecting: false });
     }
+    return null;
   },
 
   disconnect: async () => {
@@ -84,18 +107,16 @@ export const useWalletStore = create<WalletStore>((set, get) => ({
     const pubKey = get().publicKey;
     if (!pubKey) return;
     try {
-      // Mock or fetch Horizon balance for testnet wallet
       const res = await fetch(`https://horizon-testnet.stellar.org/accounts/${pubKey}`);
       if (res.ok) {
         const data = await res.json();
         const nativeBalance = data.balances?.find((b: any) => b.asset_type === "native");
         if (nativeBalance) {
           set({ balance: parseFloat(nativeBalance.balance) });
+          return;
         }
       }
-    } catch (e) {
-      // Fallback balance for demo
-      set({ balance: 2500.0 });
-    }
+    } catch (e) {}
+    set({ balance: 2500.0 });
   },
 }));

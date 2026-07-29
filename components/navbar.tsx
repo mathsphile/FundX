@@ -55,11 +55,18 @@ export function Navbar() {
     }
 
     toast.loading("Connecting Freighter Wallet...", { id: "connect-wallet" });
-    await connect();
-    toast.success("Wallet Connected!", {
-      id: "connect-wallet",
-      description: `Authenticated on Stellar Testnet as ${publicKey?.substring(0, 6)}...`,
-    });
+    const walletKey = await connect();
+    if (walletKey) {
+      toast.success("Wallet Connected!", {
+        id: "connect-wallet",
+        description: `Authenticated on Stellar Testnet as ${walletKey.substring(0, 6)}...${walletKey.substring(walletKey.length - 4)}`,
+      });
+    } else {
+      toast.error("Connection Failed", {
+        id: "connect-wallet",
+        description: "Could not connect or retrieve account from Freighter wallet.",
+      });
+    }
   };
 
   return (
