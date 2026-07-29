@@ -269,6 +269,15 @@ CrowdFundX is built as a single Next.js 15 repository deployable directly to Ver
 
 ---
 
+## 📦 Production Release v1.0.0 Changelog
+
+- 🚀 **Soroban Smart Escrow**: Full campaign lifecycle contract handling goal checks, deposits, withdrawals, and 100% automated refund claims.
+- 🔑 **ED25519 Wallet Auth**: Challenge-response signature authentication via Freighter extension with `x-wallet-address` fallback support.
+- ⚙️ **CI/CD Integration**: GitHub Actions workflow running cargo unit tests and Next.js production build checks.
+- 📊 **Telemetry & Horizon Sync**: Monitoring endpoint query utilities with real-time balance calculations and RPC status.
+
+---
+
 ## 📄 License
 
-Built for **Rise In Stellar Orange Belt (Level 3)**. Open-source under the MIT License.
+Built for **Rise In Stellar Orange Belt (Level 3: Journey to Mastery)**. Open-source under the MIT License.
