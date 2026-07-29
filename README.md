@@ -52,6 +52,20 @@ Automated continuous integration is configured in [`.github/workflows/ci.yml`](.
 
 ## 🏆 Rise In Stellar Orange Belt (Level 3) Compliance Checklist
 
+| Submission Item | Status | Verification Detail / URL |
+| :--- | :---: | :--- |
+| **Public GitHub Repo** | ✅ Pass | [mathsphile/FundX](https://github.com/mathsphile/FundX.git) |
+| **README & Documentation** | ✅ Pass | Complete installation, API, and architectural docs |
+| **10+ Meaningful Commits** | ✅ Pass | 11+ structured git commits on `main` branch |
+| **Live Production Demo** | ✅ Pass | [https://fund-x-green.vercel.app](https://fund-x-green.vercel.app) |
+| **Contract Deployment Address** | ✅ Pass | `CDEE2K7UAVF2V2K62P7D5XOTSIWKWBN2Z3I4FU3PBSXWGLMNIMMHB4NE` |
+| **Deployer Wallet Address** | ✅ Pass | `GAKAWNAR76U2MPDKUZXPYA6S6S4HOTVIXIRXIEKXJXVNA4XUIHGDSLYY` |
+| **Transaction Hash** | ✅ Pass | `0c803a6af3cd09f3015c278dbf9b99b6278b47c870fc7eac1827ed4400f8d302` |
+| **Demo Video Link (1-2 mins)** | ✅ Pass | [Watch YouTube Demo Video](https://youtu.be/X9E2upV4nJw) |
+| **Mobile Responsive UI Showcase** | ✅ Pass | Documented in UI Showcase section below |
+| **CI/CD Pipeline Setup** | ✅ Pass | Configured in [`.github/workflows/ci.yml`](.github/workflows/ci.yml) |
+| **Contract Unit Tests** | ✅ Pass | 4/4 passing tests (`cargo test`) |
+
 - [x] **Soroban Smart Contract Implementation**: Custom Rust Soroban contract (`contracts/crowdfund/src/lib.rs`) managing campaign state, escrow balances, creator withdrawals, and 100% automated refund claims.
 - [x] **Stellar Testnet Deployment**: Deployed contract `CDEE2K7UAVF2V2K62P7D5XOTSIWKWBN2Z3I4FU3PBSXWGLMNIMMHB4NE` under deployer wallet `GAKAWNAR76U2MPDKUZXPYA6S6S4HOTVIXIRXIEKXJXVNA4XUIHGDSLYY`.
 - [x] **Automated Smart Contract Tests**: 100% passing Rust unit tests (`cargo test`) verifying happy-path funding/withdrawals and failed-path refund mechanisms.
