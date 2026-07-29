@@ -1,0 +1,137 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            String            @id @default(cuid())
+  walletAddress String            @unique
+  name          String?
+  avatar        String?
+  bio           String?
+  twitter       String?
+  github        String?
+  website       String?
+  createdAt     DateTime          @default(now())
+  updatedAt     DateTime          @updatedAt
+  campaigns     Campaign[]
+  donations     Donation[]
+  comments      CampaignComment[]
+  bookmarks     Bookmark[]
+  notifications Notification[]
+}
+
+model Campaign {
+  id               String            @id @default(cuid())
+  onChainId        Int?
+  creatorId        String
+  creator          User              @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  title            String
+  slug             String            @unique
+  shortDescription String
+  story            String
+  category         String
+  fundingGoal      Float
+  raisedAmount     Float             @default(0)
+  deadline         DateTime
+  coverImage       String
+  gallery          String?
+  videoUrl         String?
+  website          String?
+  github           String?
+  twitter          String?
+  discord          String?
+  status           String            @default("ACTIVE")
+  featured         Boolean           @default(false)
+  verified         Boolean           @default(false)
+  views            Int               @default(0)
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+  donations        Donation[]
+  milestones       Milestone[]
+  rewardTiers      RewardTier[]
+  updates          CampaignUpdate[]
+  comments         CampaignComment[]
+  bookmarks        Bookmark[]
+}
+
+model Donation {
+  id                 String    @id @default(cuid())
+  campaignId         String
+  campaign           Campaign  @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  contributorId      String?
+  contributor        User?     @relation(fields: [contributorId], references: [id], onDelete: SetNull)
+  contributorAddress String
+  amount             Float
+  txHash             String    @unique
+  status             String    @default("CONFIRMED")
+  createdAt          DateTime  @default(now())
+}
+
+model Milestone {
+  id          String    @id @default(cuid())
+  campaignId  String
+  campaign    Campaign  @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  title       String
+  description String
+  targetAmount Float
+  completed   Boolean   @default(false)
+  dueDate     DateTime?
+}
+
+model RewardTier {
+  id          String   @id @default(cuid())
+  campaignId  String
+  campaign    Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  title       String
+  description String
+  minAmount   Float
+  items       String?
+  backerCount Int      @default(0)
+}
+
+model CampaignUpdate {
+  id         String   @id @default(cuid())
+  campaignId String
+  campaign   Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  title      String
+  content    String
+  image      String?
+  createdAt  DateTime @default(now())
+}
+
+model CampaignComment {
+  id         String   @id @default(cuid())
+  campaignId String
+  campaign   Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  content    String
+  createdAt  DateTime @default(now())
+}
+
+model Bookmark {
+  id         String   @id @default(cuid())
+  userId     String
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  campaignId String
+  campaign   Campaign @relation(fields: [campaignId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+
+  @@unique([userId, campaignId])
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  type      String
+  message   String
+  read      Boolean  @default(false)
+  link      String?
+  createdAt DateTime @default(now())
+}
