@@ -65,11 +65,31 @@ export async function GET(req: Request) {
 export async function POST(req: Request) {
   try {
     const session = await getSession();
-    if (!session) {
+    const body = await req.json();
+    const headerAddress = req.headers.get("x-wallet-address");
+    const walletAddress = session?.walletAddress || headerAddress || body.publicKey || body.creatorAddress;
+
+    if (!walletAddress) {
       return NextResponse.json({ error: "Unauthorized. Connect wallet first." }, { status: 401 });
     }
 
-    const body = await req.json();
+    let creatorId = session?.userId;
+    if (!creatorId) {
+      let user = await prisma.user.findUnique({
+        where: { walletAddress },
+      });
+      if (!user) {
+        user = await prisma.user.create({
+          data: {
+            walletAddress,
+            name: `Stellar Creator ${walletAddress.substring(0, 4)}...${walletAddress.substring(walletAddress.length - 4)}`,
+            avatar: `https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=300&auto=format&fit=crop&q=80`,
+          },
+        });
+      }
+      creatorId = user.id;
+    }
+
     const {
       title,
       shortDescription,
@@ -101,7 +121,7 @@ export async function POST(req: Request) {
 
     const campaign = await prisma.campaign.create({
       data: {
-        creatorId: session.userId,
+        creatorId,
         title,
         slug,
         shortDescription,

@@ -41,7 +41,13 @@ export function verifyStellarSignature({
 
     const message = `CrowdFundX Authentication Nonce: ${nonce}`;
     const messageBuffer = Buffer.from(message, "utf-8");
-    const signatureBuffer = Buffer.from(signatureBase64, "base64");
+    
+    let signatureBuffer: Buffer;
+    if (/^[0-9a-fA-F]+$/.test(signatureBase64) && signatureBase64.length === 128) {
+      signatureBuffer = Buffer.from(signatureBase64, "hex");
+    } else {
+      signatureBuffer = Buffer.from(signatureBase64, "base64");
+    }
 
     const keypair = Keypair.fromPublicKey(publicKey);
     return keypair.verify(messageBuffer, signatureBuffer);

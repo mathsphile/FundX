@@ -16,7 +16,7 @@ import { toast } from "sonner";
 
 export default function CreateCampaignPage() {
   const router = useRouter();
-  const { isConnected, connect } = useWalletStore();
+  const { isConnected, publicKey, connect } = useWalletStore();
   const [step, setStep] = useState(1);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -68,7 +68,7 @@ export default function CreateCampaignPage() {
   };
 
   const handlePublish = async () => {
-    if (!isConnected) {
+    if (!isConnected || !publicKey) {
       toast.error("Please connect your Stellar wallet first");
       await connect();
       return;
@@ -85,8 +85,11 @@ export default function CreateCampaignPage() {
     try {
       const res = await fetch("/api/campaigns", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        headers: {
+          "Content-Type": "application/json",
+          "x-wallet-address": publicKey,
+        },
+        body: JSON.stringify({ ...formData, publicKey }),
       });
 
       const data = await res.json();
